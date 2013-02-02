@@ -10,7 +10,7 @@
   },
   "app": {
     "background": {
-      "scripts": ["launch.js"],
+      "scripts": ["launch.js","lib/serial.js","lib/angular.min.js"],
       "transient": true
     }
   }

@@ -1,0 +1,1 @@
+{"ts":1359659415952,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"chrome.app.runtime.onLaunched.addListener(function() {\n  chrome.app.window.create('index.html', {\n    width: 320,\n    height: 240\n  });\n});\n"]],"start1":0,"start2":0,"length1":0,"length2":140}]],"length":140}
