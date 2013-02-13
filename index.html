@@ -4,30 +4,47 @@
     <head>
         <script src="main.js"></script>
         <script src="lib/serial.js"></script>
+        <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        
+        <style type="text/css">
+        
+        .container {
+            width: auto;
+            max-width: 650px;
+        }
+        
+        .form-inline {
+            margin-bottom: 20px;
+        }
+        
+        </style>
     </head>
     
     <body>
-        <div id="container">
-            <label>Port:
-                <select id="port-picker"></select>
-            </label>
-            
-            <label>Bitrate:
-                <select id="bitrate-picker"></select>
-            </label>
-            <br>
-            <label>Status: <span id="status">Loading</span>
-
-            </label>
-            <br>
-            <label>
-                <input id="input" type="text">
-            </label>
-            <label>
-                <button id="send">Send</button>
-            </label>
+        <div class="container">
+                <div class="page-header">
+          <h1>Serial Monitor</h1>
         </div>
-        <div id="output"></div>
+            <form>
+            <div class="form-inline">
+                        <select class="span4" id="port-picker"></select>
+                        <select class="span2" id="bitrate-picker"></select>
+
+                        <span class="label" id="status">Not Connected</span>
+                            
+                        </div>
+                            
+                        
+                    <div class="input-append">
+                        <input class="input-xxlarge" id="input" type="text" placeholder="Enter send text">
+                        <button id="send" class="btn btn-primary">Send</button>
+                    </div>
+            </form>
+        
+        <div class="well well-large" id="output">
+</div>
+</div>
+    
     </body>
 
 </html>
