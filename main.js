@@ -16,6 +16,7 @@ function onOpen() {
         return;
     }
     setStatus('Connected');
+    serial_lib.startListening(onRead);
 }
 
 function openSelectedPort() {
@@ -78,9 +79,10 @@ var writeSerial = function (writeString) {
         console.log("Nothing to write");
         return;
     }
-    if (writeString.charAt(writeString.length - 1) !== '\n') {
-        writeString += "\n";
-    }
+
+    //if (writeString.charAt(writeString.length - 1) !== '\r') {
+    //    writeString += "\r";
+    //}
     serial_lib.writeSerial(writeString);
 };
 
@@ -89,6 +91,7 @@ var onRead = function (readData) {
         console.log("log:");
         return;
     }
+    
 
     var output = document.getElementById('output');
     output.innerHTML += readData + '<br/>';
@@ -96,20 +99,19 @@ var onRead = function (readData) {
 
 
 onload = function () {
+    var sendButton = document.getElementById('send');
+
+    sendButton.addEventListener('click', function () {
+        var input = document.getElementById('input').value;
+        console.log(input);
+        writeSerial(input);
+
+    });
+
     serial_lib.getPorts(function (ports) {
         buildPortPicker(ports);
         buildBitratePicker(bitrates);
         openSelectedPort();
 
-
-        var sendButton = document.getElementById('send');
-
-        sendButton.addEventListener('click', function () {
-            var input = document.getElementById('input').value;
-            writeSerial(input);
-            setInterval(function () {
-                serial_lib.startListening(onRead);
-            }, 200);
-        });
     });
 };
