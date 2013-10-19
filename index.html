@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <script src="main.js"></script>
+        <script src="lib/serial.js"></script>
+        <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        
+        <style type="text/css">
+        
+        .container {
+            width: auto;
+            max-width: 650px;
+        }
+        
+        .form-inline {
+            margin-bottom: 20px;
+        }
+        
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+                <div class="page-header">
+          <h1>Serial Monitor</h1>
+        </div>
+            
+            <div class="form-inline">
+                        <select class="span4" id="port-picker"></select>
+                        <select class="span2" id="bitrate-picker"></select>
+
+                        <span class="label" id="status">Not Connected</span>
+                            
+                        </div>
+                            
+                        
+                    <div class="input-append">
+                        <textarea rows="3" id="input"></textarea>
+
+                        <button id="send" class="btn btn-primary">Send</button>
+                    </div>
+            
+        
+        <div class="well well-large" id="output">
+</div>
+</div>
+    
+    </body>
+
+</html>
